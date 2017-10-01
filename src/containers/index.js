@@ -1,19 +1,27 @@
 import React from 'react';
+import { Provider } from 'mobx-react';
 // import package
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import 'ress/dist/ress.min.css';
+// import 'ress/dist/ress.min.css';
 
 // import relative path
 import Home from './Home';
-import NotFound from './NotFound';
+
+// import store
+import { TodoStore } from '../models/TodoStore';
+
+const todoStore = TodoStore.create({
+  todos: {}
+});
 
 const Main = () => (
-  <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route component={NotFound} />
-    </Switch>
-  </Router>
+  <Provider TodoStore={todoStore}>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
+  </Provider>
 );
 
 export default Main;
