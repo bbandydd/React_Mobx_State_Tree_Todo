@@ -18,7 +18,7 @@ const Main = () => (
   <Provider TodoStore={todoStore}>
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Home />
       </Switch>
     </Router>
   </Provider>
