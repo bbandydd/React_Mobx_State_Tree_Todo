@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { observable, action } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
+import Patches from './Patches';
+
 @inject('TodoStore')
 @observer
 export default class Todo extends Component {
@@ -47,6 +49,7 @@ export default class Todo extends Component {
               ))
           }
         </ul>
+        <Patches />
       </div>
     );
   }
